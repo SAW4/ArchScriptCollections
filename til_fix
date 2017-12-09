@@ -1,0 +1,12 @@
+#!/bin/bash
+script=/home/sawa/.local/share/kservices5/kwin-script-quarter-tiling.desktop
+
+num=$(dbus-send --print-reply --dest=org.kde.kwin.Scripting \
+  /Scripting \
+  org.kde.kwin.Scripting.loadScript \
+  string:"$script" |
+  awk 'END {print $2}' )
+
+dbus-send --print-reply --dest=org.kde.kwin.Scripting \
+  /$num \
+  org.kde.kwin.Scripting.run
