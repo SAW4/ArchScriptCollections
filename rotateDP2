@@ -1,3 +1,16 @@
 #! /bin/bash
-xrandr --output DP2 --rotate right
+# Toggle external monitor to vertical display/ horizontal display
+# normal = horizontal, right=rotate right
+# remark : DP2 is interface of X250, it may various for different devices; check: xrandr
+
+current_mode=`xrandr | grep "right ("`
+if [ $? -eq 0 ]
+then
+    echo "normal"
+    xrandr --output DP2 --rotate normal
+else
+    echo "right"
+    xrandr --output DP2 --rotate right
+fi
+
 
