@@ -1,12 +1,20 @@
 #!/bin/bash
-script=/home/sawa/.local/share/kservices5/kwin-script-quarter-tiling.desktop
 
-num=$(dbus-send --print-reply --dest=org.kde.kwin.Scripting \
-  /Scripting \
-  org.kde.kwin.Scripting.loadScript \
-  string:"$script" |
-  awk 'END {print $2}' )
+# The script name can be found 
+# in /home/sawa/.local/share/kservices5/kwin-script-quarter-tiling.desktop, 
+# with field name : X-KDE-PluginKeyword=quarter-tiling
 
-dbus-send --print-reply --dest=org.kde.kwin.Scripting \
-  /$num \
-  org.kde.kwin.Scripting.run
+# You can use this command check wheather plugin is loaded or not
+# qdbus org.kde.KWin /Scripting org.kde.kwin.Scripting.isScriptLoaded quarter-tiling
+
+# Unload the script, the script will stop working now!
+# qdbus org.kde.KWin /Scripting org.kde.kwin.Scripting.unloadScript quarter-tiling
+
+# Load the script, this will return the object id
+# qdbus org.kde.KWin /Scripting org.kde.kwin.Scripting.loadScript quarter-tiling
+# 0         # return 0, 
+
+script=quarter-tiling
+
+qdbus org.kde.KWin /Scripting org.kde.kwin.Scripting.unloadScript $script
+qdbus org.kde.KWin /Scripting org.kde.kwin.Scripting.start
