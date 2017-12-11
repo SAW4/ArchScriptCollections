@@ -1,0 +1,5 @@
+#!/bin/bash
+# require create_ap package
+
+sudo create_ap wlp3s0 enp0s25 FuckMyLifEifUC4n 2943F7D9CH
+
