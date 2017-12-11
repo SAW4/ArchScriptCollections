@@ -14,3 +14,4 @@ DM : `SDDM` | `version : 0.14.0.60.g77c98a6-1`
 | pre_suspend_event | Launch screen locker before suspend |
 | rotateDP2 | Toggle vertical/horizontal mode display of external monitor | 
 | til_fix | Kwin Script "quarter-tiling" restart by calling dbus method  | 
+| ap      | Create Access Point, network shared |
