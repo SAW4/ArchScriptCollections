@@ -7,10 +7,10 @@ current_mode=`xrandr | grep "right ("`
 if [ $? -eq 0 ]
 then
     echo "normal"
-    xrandr --output DP2 --rotate normal
+    xrandr --output DP2 --rotate normal --pos 1600x0
 else
     echo "right"
-    xrandr --output DP2 --rotate right
+    xrandr --output DP2 --rotate right --pos 1600x0
 fi
 
 
